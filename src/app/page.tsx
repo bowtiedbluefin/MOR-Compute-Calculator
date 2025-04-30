@@ -1,103 +1,73 @@
-import Image from "next/image";
+'use client';
+
+import { useEffect } from 'react';
+import SessionCostCalculator from '../components/SessionCostCalculator';
+import MaxSessionCalculator from '../components/MaxSessionCalculator';
+import ContractFunctionTester from '../components/ContractFunctionTester';
+import { initializeBlockchain } from '../services/blockchain';
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  useEffect(() => {
+    // Initialize blockchain connection when the app loads
+    initializeBlockchain();
+  }, []);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
+  return (
+    <main style={{ minHeight: '100vh', padding: '1rem', backgroundColor: 'rgb(248, 250, 252)' }}>
+      <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+        <h1 style={{ fontSize: '1.875rem', fontWeight: 'bold', textAlign: 'center', marginBottom: '0.75rem', color: '#3b82f6' }}>
+          Morpheus Compute Node Staking Calculator
+        </h1>
+        <p style={{ textAlign: 'center', color: '#6b7280', marginBottom: '1.5rem', maxWidth: '700px', margin: '0 auto 1.5rem' }}>
+          Use this calculator to help identify the required MOR to create a session, or the longest session you can create 
+          with a given amount of MOR. For more information on the Morpheus Compute Node, visit{' '}
+          <a href="https://github.com/MorpheusAIs/Docs/tree/main/!KEYDOCS%20README%20FIRST!/Compute%20Providers" 
+             style={{ color: '#3b82f6', textDecoration: 'none' }}
+             target="_blank" rel="noopener noreferrer">
+            Morpheus Documentation
           </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+        </p>
+        
+        <div style={{ 
+          backgroundColor: '#eff6ff', 
+          borderLeft: '4px solid #3b82f6',
+          color: '#1e40af',
+          padding: '1rem',
+          marginBottom: '1.5rem',
+          borderRadius: '0.25rem'
+        }}>
+          <p style={{ fontSize: '0.875rem' }}>
+            <strong>Note:</strong> This application makes direct calls to the Arbitrum blockchain. 
+            If calculations fail, no results will be shown. All data is retrieved directly from the smart contract 
+            at address 0xde819aaee474626e3f34ef0263373357e5a6c71b.
+          </p>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+        
+        <div style={{ 
+          display: 'grid',
+          gridTemplateColumns: '1fr',
+          gap: '1.5rem',
+          marginBottom: '1.5rem'
+        }}>
+          <SessionCostCalculator />
+          <MaxSessionCalculator />
+        </div>
+        
+        <h2 style={{ fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1rem', color: '#3b82f6', textAlign: 'left' }}>
+          Direct Calculations
+        </h2>
+        <p style={{ color: '#6b7280', marginBottom: '1rem', fontSize: '0.875rem' }}>
+          Use this section to verify direct conversions.
+        </p>
+        
+        <div style={{ marginBottom: '1.5rem' }}>
+          <ContractFunctionTester />
+        </div>
+        
+        <footer style={{ marginTop: '2rem', textAlign: 'center', color: '#6b7280', fontSize: '0.875rem' }}>
+          <p>Connecting to Arbitrum Blockchain - Contract: 0xde819aaee474626e3f34ef0263373357e5a6c71b</p>
+        </footer>
+      </div>
+    </main>
   );
 }
