@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import { stipendToStake, stakeToStipend } from '../services/blockchain';
-import { formatWei } from '../utils/format';
 import { ethers } from 'ethers';
 
 export default function ContractFunctionTester() {

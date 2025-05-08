@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { stakeToStipend } from '../services/blockchain';
-import { formatWei, formatTime } from '../utils/format';
+import { formatTime } from '../utils/format';
 import { ethers } from 'ethers';
 
 export default function MaxSessionCalculator() {

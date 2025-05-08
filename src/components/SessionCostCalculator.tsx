@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import { calculateDirectPayCost, stipendToStake } from '../services/blockchain';
-import { formatWei } from '../utils/format';
 import { ethers } from 'ethers';
 
 export default function SessionCostCalculator() {
@@ -12,7 +11,6 @@ export default function SessionCostCalculator() {
   const [requiredStake, setRequiredStake] = useState<string>('');
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<string>('');
-  const [unit, setUnit] = useState<'MOR' | 'wei'>('wei');
 
   const handleCalculate = async () => {
     if (!sessionLength || !bidPrice) {

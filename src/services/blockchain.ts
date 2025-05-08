@@ -1,6 +1,7 @@
 import { ethers } from 'ethers';
 
-// ABI for the specific functions we need
+// ABI for the specific functions we need - currently unused since we're using function selectors directly
+/* 
 const contractABI = [
   {
     "inputs": [
@@ -71,6 +72,7 @@ const contractABI = [
     "type": "function"
   }
 ];
+*/
 
 // Contract address and RPC URL
 const CONTRACT_ADDRESS = '0xde819aaee474626e3f34ef0263373357e5a6c71b';
