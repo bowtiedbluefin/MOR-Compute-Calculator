@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { fetchModels, fetchModelBids, Model, BidWithScore } from '../services/modelMarketplace';
 import { ethers } from 'ethers';
 
