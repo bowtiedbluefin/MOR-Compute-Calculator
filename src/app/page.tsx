@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import SessionCostCalculator from '../components/SessionCostCalculator';
 import MaxSessionCalculator from '../components/MaxSessionCalculator';
 import ContractFunctionTester from '../components/ContractFunctionTester';
+import ModelMarketplace from '../components/ModelMarketplace';
 import { initializeBlockchain } from '../services/blockchain';
 
 export default function Home() {
@@ -43,15 +44,9 @@ export default function Home() {
           </p>
         </div>
         
-        <div style={{ 
-          display: 'grid',
-          gridTemplateColumns: '1fr',
-          gap: '1.5rem',
-          marginBottom: '1.5rem'
-        }}>
-          <SessionCostCalculator />
-          <MaxSessionCalculator />
-        </div>
+        <ModelMarketplace />
+        <SessionCostCalculator />
+        <MaxSessionCalculator />
         
         <h2 style={{ fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1rem', color: '#3b82f6', textAlign: 'left' }}>
           Direct Calculations

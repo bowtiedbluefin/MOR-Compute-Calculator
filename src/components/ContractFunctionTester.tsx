@@ -92,7 +92,7 @@ export default function ContractFunctionTester() {
   };
 
   return (
-    <div className="card" style={{ maxWidth: '750px', margin: '0 auto' }}>      
+    <div className="card" style={{ width: '100%', margin: '0 auto' }}>      
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem', margin: '0 auto' }}>
         {/* stipendToStake Tester */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>

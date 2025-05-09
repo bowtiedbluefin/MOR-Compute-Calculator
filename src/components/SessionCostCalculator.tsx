@@ -85,12 +85,12 @@ export default function SessionCostCalculator() {
   };
 
   return (
-    <div className="card" style={{ maxWidth: '750px', margin: '0 auto' }}>
+    <div className="card" style={{ width: '100%', margin: '0 auto', marginBottom: '1.5rem' }}>
       <h2 style={{ fontSize: '1.25rem', fontWeight: 'bold', marginBottom: '0.75rem', color: '#3b82f6' }}>
         Required Stake for Session
       </h2>
       
-      <div style={{ maxWidth: '600px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+      <div style={{ width: '100%', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
         {/* Session Length Input */}
         <div>
           <label htmlFor="sessionLength" style={{ display: 'block', fontSize: '0.875rem', fontWeight: 500, color: '#374151', marginBottom: '0.25rem' }}>
