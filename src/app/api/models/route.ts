@@ -25,7 +25,7 @@ export async function GET() {
   try {
     const data = await fetchModelsFromApi();
     return NextResponse.json(data);
-  } catch (_error) {
+  } catch {
     return NextResponse.json(
       { error: 'Failed to fetch models' },
       { status: 500 }
