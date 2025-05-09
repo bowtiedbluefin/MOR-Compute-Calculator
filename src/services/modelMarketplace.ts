@@ -1,6 +1,6 @@
 // API endpoints
-const MODELS_API_URL = 'http://api.mor.org/api/v1/models/';
-const BIDS_API_URL = 'http://api.mor.org/api/v1/models/ratedbids';
+const MODELS_API_URL = '/api/models';
+const BIDS_API_URL = '/api/bids';
 
 // Cache expiration times (in milliseconds)
 const MODELS_CACHE_EXPIRY = 60 * 60 * 1000; // 1 hour

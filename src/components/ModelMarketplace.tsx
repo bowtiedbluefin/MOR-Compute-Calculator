@@ -117,8 +117,8 @@ export default function ModelMarketplace() {
               style={{ width: '100%' }}
             >
               <option value="">-- Select a model --</option>
-              {models.map(model => (
-                <option key={model.id} value={model.id}>
+              {models.map((model, index) => (
+                <option key={`${model.id}-${index}`} value={model.id}>
                   {model.id}
                 </option>
               ))}
